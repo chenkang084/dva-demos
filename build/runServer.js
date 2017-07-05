@@ -213,7 +213,7 @@ function runDevServer(host, port, protocol) {
     }
 
     if (argv.open) {
-      (0, _openBrowser2.default)(protocol + '://' + host + ':' + port + '/');
+      // (0, _openBrowser2.default)(protocol + '://' + host + ':' + port + '/');
     }
   });
 

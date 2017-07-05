@@ -1,5 +1,4 @@
-
-let path = require('path');
+let path = require("path");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -69,10 +68,10 @@ exports.default = function(config, cwd) {
           include: paths.appSrc,
           loader:
             "style!" +
-              cssLoaders.own.join("!") +
-              '!less?{"modifyVars":' +
-              theme +
-              "}"
+            cssLoaders.own.join("!") +
+            '!less?{"modifyVars":' +
+            theme +
+            "}"
         },
         {
           test: /\.css$/,
@@ -84,14 +83,19 @@ exports.default = function(config, cwd) {
           include: paths.appNodeModules,
           loader:
             "style!" +
-              cssLoaders.nodeModules.join("!") +
-              '!less?{"modifyVars":' +
-              theme +
-              "}"
+            cssLoaders.nodeModules.join("!") +
+            '!less?{"modifyVars":' +
+            theme +
+            "}"
         },
+        // {
+        //   test: /\.html$/,
+        //   loader: "file?name=[name].[ext]"
+        // },
         {
           test: /\.html$/,
-          loader: "file?name=[name].[ext]"
+          loader: "html",
+          exclude: /node_modules/
         },
         {
           test: /\.json$/,
@@ -138,7 +142,11 @@ exports.default = function(config, cwd) {
       new _webpack2.default.HotModuleReplacementPlugin(),
       new _caseSensitivePathsWebpackPlugin2.default(),
       new _WatchMissingNodeModulesPlugin2.default(paths.appNodeModules),
-      new _systemBellWebpackPlugin2.default()
+      new _systemBellWebpackPlugin2.default(),
+      new HtmlWebpackPlugin({
+        filename: "./index.html",
+        template: path.resolve(__dirname, "../../public/index.html") //packed js append to index.html,set index.html path
+      })
     ]
       .concat(
         !_fs2.default.existsSync(paths.appPublic)
@@ -208,11 +216,9 @@ var _systemBellWebpackPlugin2 = _interopRequireDefault(
   _systemBellWebpackPlugin
 );
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-var HtmlWebpackPlugin2 = _interopRequireDefault(
-  HtmlWebpackPlugin
-);
+var HtmlWebpackPlugin2 = _interopRequireDefault(HtmlWebpackPlugin);
 
 var _paths = require("./paths");
 
