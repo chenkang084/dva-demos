@@ -217,7 +217,7 @@ function runDevServer(host, port, protocol) {
     }
   });
 
-  // setupWatch(devServer, port);
+  setupWatch(devServer, port);
 }
 
 function setupWatch(devServer) {
