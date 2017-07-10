@@ -18,15 +18,23 @@
     "jsx-a11y/no-static-element-interactions": [0],
     "no-nested-ternary": [0],
     "arrow-body-style": [0],
+    "arrow-parens":[0],
     "import/extensions": [0],
     "no-bitwise": [0],
     "no-cond-assign": [0],
     "import/no-unresolved": [0],
-    "require-yield": [1]
+    "require-yield": [1],
+    "no-console":0
+    
   },
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
+  },
+  "globals": {
+    "window": true,
+    "console": true,
+    "localStorage": true
   }
 }
