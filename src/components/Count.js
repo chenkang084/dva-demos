@@ -3,17 +3,16 @@ import { connect } from "dva";
 
 const Count = ({ count, dispatch }) => {
   // console.log(count)
-  
-  let add = function(){
-    dispatch({type:'count/add'});
-  }
+  const add = function() {
+    dispatch({ type: "count/add" });
+  };
 
   return (
     <div>
       Example
       <p>record:{count.record}</p>
       <p>current:{count.current}</p>
-      <button onClick={ add }>add</button>
+      <button onClick={add}>add</button>
     </div>
   );
 };
